@@ -9,6 +9,16 @@ const navItems = [
   { label: 'FAQ', href: '#faq' },
 ];
 
+function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+  if (href.startsWith('#')) {
+    e.preventDefault();
+    const el = document.querySelector(href);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+}
+
 export default function Navbar({ hide }: { hide?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -53,6 +63,7 @@ export default function Navbar({ hide }: { hide?: boolean }) {
             <li key={item.label}>
               <a
                 href={item.href}
+                onClick={(e) => scrollToSection(e, item.href)}
                 className="hover:text-black transition-colors duration-150"
               >
                 {item.label}
