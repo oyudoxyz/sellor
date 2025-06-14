@@ -43,14 +43,19 @@ function FeatureCard({
 }: FeatureCardProps) {
   return (
     <div
-      className={`rounded-2xl shadow-lg p-6 max-w-xs flex flex-col items-start gap-3 font-manrope border border-gray-100 ${className}`}
+      className={`rounded-2xl shadow-lg p-4 md:p-6 max-w-[160px] md:max-w-xs flex flex-col items-start gap-2 md:gap-3 font-manrope border border-gray-100 ${className}`}
       style={{ background: bg }}
     >
       <div className="text-black/80">
-        <Icon size={28} />
+        <Icon
+          size={20}
+          className="md:size-[28px]"
+        />
       </div>
-      <div className="font-semibold text-lg text-black">{title}</div>
-      <div className="text-gray-700 text-sm">{desc}</div>
+      <div className="font-semibold text-base md:text-lg text-black">
+        {title}
+      </div>
+      <div className="text-gray-700 text-xs md:text-sm">{desc}</div>
     </div>
   );
 }

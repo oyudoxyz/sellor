@@ -13,17 +13,27 @@ export default function Home() {
   const featuresSectionRef = useRef<HTMLDivElement>(null);
   const [hideNav, setHideNav] = useState(false);
   useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => setHideNav(entry.isIntersecting),
-      { threshold: 0.3 }
-    );
-    if (featuresSectionRef.current) {
-      observer.observe(featuresSectionRef.current);
-    }
-    return () => {
-      if (featuresSectionRef.current) {
-        observer.unobserve(featuresSectionRef.current);
+    function handleScroll() {
+      const nav = document.querySelector('nav');
+      const features = featuresSectionRef.current;
+      if (!nav || !features) return;
+      const navRect = nav.getBoundingClientRect();
+      const featuresRect = features.getBoundingClientRect();
+      const buffer = 16;
+      if (featuresRect.top - navRect.bottom > buffer) {
+        setHideNav(false);
+      } else if (featuresRect.bottom > navRect.bottom + buffer) {
+        setHideNav(true);
+      } else {
+        setHideNav(false);
       }
+    }
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
     };
   }, []);
   return (

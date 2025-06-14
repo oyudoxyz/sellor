@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const features = [
@@ -38,8 +38,78 @@ export default function AnimatedFeatures() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) return;
+
+    // Create intersection observer
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = featureRefs.current.findIndex(
+              (ref) => ref === entry.target
+            );
+            if (index !== -1) {
+              setActive(index);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Lower threshold to make it more responsive
+        rootMargin: '-10% 0px -10% 0px', // Reduced margin for better detection
+      }
+    );
+
+    // Observe all feature elements
+    featureRefs.current.forEach((ref) => {
+      if (ref) {
+        observerRef.current?.observe(ref);
+      }
+    });
+
+    // Add resize handler to update active feature on viewport changes
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 768;
+      if (!isMobile) return;
+
+      // Find the most visible feature
+      let maxVisibility = 0;
+      let mostVisibleIndex = 0;
+
+      featureRefs.current.forEach((ref, index) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const visibility =
+          Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+
+        if (visibility > maxVisibility) {
+          maxVisibility = visibility;
+          mostVisibleIndex = index;
+        }
+      });
+
+      setActive(mostVisibleIndex);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Initial check
+
+    return () => {
+      observerRef.current?.disconnect();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [features.length]);
+
+  // Desktop: scroll logic for active index
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
     const handleScroll = () => {
       let found = 0;
       for (let i = 0; i < features.length; i++) {
@@ -64,11 +134,11 @@ export default function AnimatedFeatures() {
     >
       {/* Headings row */}
       <div
-        className="relative flex justify-center w-full mb-16 sticky top-0 z-20 bg-white pt-8"
+        className="relative flex justify-center w-full mb-16 sticky top-0 z-20 bg-white pt-8 overflow-hidden md:overflow-visible"
         style={{ minHeight: 60 }}
       >
         <motion.div
-          className="flex gap-12 md:gap-24 absolute left-1/2 -translate-x-1/2"
+          className="flex gap-12 md:gap-24 absolute left-1/2 -translate-x-1/2 ml-80 md:ml-0"
           animate={{ x: `-${active * 180}px` }}
           transition={{ type: 'spring', stiffness: 60, damping: 20 }}
         >
@@ -86,61 +156,107 @@ export default function AnimatedFeatures() {
         </motion.div>
       </div>
       {/* Animated image and text */}
-      <div className="flex flex-col md:flex-row items-start justify-center w-full max-w-5xl gap-12 md:gap-20">
-        <div className="relative w-full md:w-[520px] h-[340px] flex items-center justify-center sticky top-32 md:top-36 self-start">
-          {features.map((f, i) => (
-            <motion.div
-              key={f.key}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{
-                opacity: active === i ? 1 : 0,
-                scale: active === i ? 1 : 0.95,
-              }}
-              transition={{ duration: 0.5 }}
-              className={`absolute inset-0 flex items-center justify-center ${
-                active === i ? 'z-10' : 'z-0'
-              }`}
-              style={{ pointerEvents: active === i ? 'auto' : 'none' }}
-            >
-              <div className="w-full h-full rounded-3xl overflow-hidden relative">
-                <Image
-                  src={f.image}
-                  alt={f.heading}
-                  fill
-                  style={{ objectFit: 'cover', filter: 'blur(0px)' }}
-                  className="transition-all duration-500"
-                />
-                {/* Strong blur overlay for edges */}
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      'radial-gradient(ellipse at center, rgba(255,255,255,0) 55%, rgba(255,255,255,1) 100%)',
-                    filter: 'blur(16px)',
-                  }}
-                />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        <div className="flex flex-col items-start max-w-md w-full">
+      <div className="w-full max-w-5xl">
+        {/* Mobile: stacked image and text, image sticky under nav */}
+        <div className="flex flex-col md:hidden">
           {features.map((f, i) => (
             <div
               key={f.key}
+              className="mb-40 last:mb-0"
               ref={(el) => {
-                featureRefs.current[i] = el;
+                if (el) featureRefs.current[i] = el;
               }}
-              className="mb-32 last:mb-0 min-h-[340px] flex flex-col justify-center"
             >
-              <div className="mb-2 text-lg text-gray-500 font-semibold">
-                {f.subheading}
+              <div className="w-full h-[180px] flex items-center justify-center mb-6">
+                <div className="w-full h-full rounded-3xl overflow-hidden relative">
+                  <Image
+                    src={f.image}
+                    alt={f.heading}
+                    fill
+                    style={{ objectFit: 'cover', filter: 'blur(0px)' }}
+                    className="transition-all duration-500"
+                  />
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background:
+                        'radial-gradient(ellipse at center, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 100%)',
+                      filter: 'blur(28px)',
+                    }}
+                  />
+                </div>
               </div>
-              <div className="text-2xl md:text-3xl text-black font-bold mb-4">
-                {f.heading}
+              <div className="flex flex-col items-start max-w-md w-full mx-auto">
+                <div className="mb-2 text-lg text-gray-500 font-semibold">
+                  {f.subheading}
+                </div>
+                <div className="text-2xl text-black font-bold mb-4">
+                  {f.heading}
+                </div>
+                <p className="text-base text-gray-700">{f.body}</p>
               </div>
-              <p className="text-base md:text-lg text-gray-700">{f.body}</p>
             </div>
           ))}
+        </div>
+        {/* Desktop: side-by-side layout as before */}
+        <div className="hidden md:flex flex-row items-start justify-center w-full gap-20">
+          <div className="relative w-[520px] h-[340px] flex items-center justify-center sticky top-32 self-start transition-all duration-300">
+            {features.map((f) => (
+              <motion.div
+                key={f.key}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{
+                  opacity: active === features.indexOf(f) ? 1 : 0,
+                  scale: active === features.indexOf(f) ? 1 : 0.95,
+                }}
+                transition={{ duration: 0.5 }}
+                className={`absolute inset-0 flex items-center justify-center ${
+                  active === features.indexOf(f) ? 'z-10' : 'z-0'
+                }`}
+                style={{
+                  pointerEvents:
+                    active === features.indexOf(f) ? 'auto' : 'none',
+                }}
+              >
+                <div className="w-full h-full rounded-3xl overflow-hidden relative">
+                  <Image
+                    src={f.image}
+                    alt={f.heading}
+                    fill
+                    style={{ objectFit: 'cover', filter: 'blur(0px)' }}
+                    className="transition-all duration-500"
+                  />
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background:
+                        'radial-gradient(ellipse at center, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 100%)',
+                      filter: 'blur(28px)',
+                    }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="flex flex-col items-start max-w-md w-full">
+            {features.map((f) => (
+              <div
+                key={f.key}
+                ref={(el) => {
+                  featureRefs.current[features.indexOf(f)] = el;
+                }}
+                className="mb-40 last:mb-0 min-h-[340px] flex flex-col justify-center"
+              >
+                <div className="mb-2 text-lg text-gray-500 font-semibold">
+                  {f.subheading}
+                </div>
+                <div className="text-2xl md:text-3xl text-black font-bold mb-4">
+                  {f.heading}
+                </div>
+                <p className="text-base md:text-lg text-gray-700">{f.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

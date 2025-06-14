@@ -52,7 +52,7 @@ export default function Footer() {
         <span className="text-lg md:text-xl font-extrabold text-black">
           How can we help?
         </span>
-        <nav className="flex gap-6 md:gap-8 text-black font-medium text-base">
+        <nav className="flex gap-6 md:gap-8 text-black font-medium text-base mb-4 md:mb-0">
           <a
             href="mailto:hello@sellor.xyz"
             className="hover:underline"
