@@ -18,23 +18,26 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'Repzo',
-  description: 'Field Sales Management The Efficient Way',
-  keywords: ['sales', 'field sales', 'sales management', 'CRM', 'mobile sales'],
-  authors: [{ name: 'Repzo Team' }],
-  creator: 'Repzo',
-  publisher: 'Repzo Inc.',
+  title: 'Sellor - Field Sales Management',
+  description: 'Deliver impactful sales at the highest level with automated placements, real-time earnings, and AI coaching',
+  keywords: ['field sales', 'sales management', 'AI coaching', 'commission tracking', 'sales automation'],
+  authors: [{ name: 'Sellor Team' }],
+  creator: 'Sellor',
+  publisher: 'Sellor Limited',
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
-    title: 'Repzo - Field Sales Management',
-    description: 'Manage your field sales operations efficiently with Repzo',
-    url: 'https://repzo.xyz',
-    siteName: 'Repzo',
+    title: 'Sellor - Field Sales Management',
+    description: 'Automate your placements, commissions, and pitch training with AI',
+    url: 'https://sellor.com',
+    siteName: 'Sellor',
     images: [
       {
-        url: '/repzo-titled.svg',
+        url: '/sellorlogo.svg',
         width: 316,
         height: 112,
-        alt: 'Repzo Platform',
+        alt: 'Sellor Platform',
       },
     ],
     locale: 'en_US',
@@ -42,10 +45,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Repzo - Field Sales Management',
-    description: 'Manage your field sales operations efficiently with Repzo',
-    images: ['/repzo-titled.svg'],
-    creator: '@repzo',
+    title: 'Sellor - Field Sales Management',
+    description: 'Automate your placements, commissions, and pitch training with AI',
+    images: ['/sellorlogo.svg'],
+    creator: '@sellor',
   },
   viewport: {
     width: 'device-width',
