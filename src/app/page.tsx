@@ -4,36 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
-  CheckCircle,
-  Clock,
-  DollarSign,
-  MapPin,
-  MessageCircle,
-  PieChart,
-  ThumbsUp,
-  TrendingUp,
-  Zap,
-  BookOpen,
-  User,
-  Mail,
-  Phone,
-  Building,
-  Play,
-  Star,
-  Users,
-  Target,
-  Brain,
-  Wallet,
-  Calendar,
-  Camera,
-  Award,
-  BarChart3,
-  Shield,
-  Smartphone,
-  Globe,
-  ChevronRight,
-  Menu,
-  X,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -100,9 +70,9 @@ function Header() {
 
             <div className="flex items-center space-x-4">
               <Link
-                href="#beta-signup"
+                href="/contact"
                 className="bg-[#2A2723] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-stone-800 transition-colors shadow-sm"
-              >
+          >
                 Get a demo
               </Link>
             </div>
@@ -165,7 +135,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-20 lg:pt-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-left">
             {/* Hero Content - Left aligned, same grid as navbar */}
@@ -178,20 +148,20 @@ function Hero() {
       </h1>
             <p className="text-xl text-stone-600 mb-8 leading-relaxed max-w-3xl">
              Automate your placements, commissions, and pitch training with AI, so your team can focus on selling, earning faster, and scaling effortlessly.
-            </p>
+      </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Link
-                href="#beta-signup"
+                href="/contact"
                 className="inline-flex items-center justify-center bg-[#2A2723] text-white px-6 py-3 rounded-lg text-lg  hover:bg-stone-800 transition-all duration-200 group shadow-lg hover:shadow-xl"
-              >
+      >
                  Speak with the team
               </Link>
-              <Link
-                href="#demo"
+              {/* <Link
+                href="/contact"
                 className="inline-flex items-center justify-center text-stone-600 hover:text-[#2A2723] transition-colors px-6 py-3 border border-stone-300 rounded-lg hover:border-[#2A2723] hover:bg-white"
               >
                  Watch the demo
-              </Link>
+              </Link> */}
             </div>
 
             {/* Hero Images - Side by side on desktop, stacked on mobile */}
@@ -203,7 +173,7 @@ function Hero() {
                   width={400}
                   height={500}
                   className="w-full h-auto drop-shadow-none"
-                />
+        />
               </div>
               <div className="flex-1">
                 <Image
@@ -212,7 +182,7 @@ function Hero() {
                   width={400}
                   height={500}
                   className="w-full h-auto drop-shadow-none"
-                />
+        />
               </div>
             </div>
           </div>
@@ -226,27 +196,27 @@ function Hero() {
 function WhyUseSellor() {
   const reasons = [
     {
-      number: "01",
+      number: "I",
       title: "Auto-Assign & GPS Check-In",
       description: "Never dig through spreadsheets or chats again. Automatically assign your next placement and clock-in/out by geofence, so you start selling the second you arrive.",
-      placeholder: "[Map & Check-In UI]"
+      image: "/assets/usecase-image-1.svg"
     },
     {
-      number: "02", 
+      number: "III", 
       title: "Live Commission Tracking",
       description: "Capture every sale instantly in your Feed, watch your wallet grow in real time, and request payouts whenever you need. No more waiting weeks for payday.",
-      placeholder: "[Wallet & Feed UI]"
+      image: "/assets/usecase-image-2.svg"
     },
     {
-      number: "03",
+      number: "III",
       title: "AI-Powered Pitch Practice", 
       description: "Hone your sales script with our Duolingo-style simulations, get instant feedback on tone, adherence, and conversation control. Close more deals on brand.",
-      placeholder: "[AI Practice Scorecard UI]"
+      image: "/assets/usecase-image-3.svg"
     }
   ];
 
-  const features = [
-    {
+const features = [
+  {
       feature: "Shift Assignment",
       traditional: "Manual scheduling in spreadsheets",
       sellor: "Auto-assign via algorithm"
@@ -255,8 +225,8 @@ function WhyUseSellor() {
       feature: "GPS Clock-In/Out",
       traditional: "Unverifiable manual clock-ins/outs",
       sellor: "GPS clock-in/out with photo verification"
-    },
-    {
+  },
+  {
       feature: "Sales Logging",
       traditional: "Unreliable write down or report sales later",
       sellor: "Instant in-app logging, auto-posted to feed"
@@ -265,8 +235,8 @@ function WhyUseSellor() {
       feature: "Commission Visibility",
       traditional: "Wait weeks to see unexpexcted commissions",
       sellor: "Watch earnings grow, cash out anytime"
-    },
-    {
+  },
+  {
       feature: "Pitch Consistency & Training",
       traditional: "Inconsistent training with no progress tracking or material",
       sellor: "AI simulations + trackable Learning Centre courses"
@@ -275,8 +245,8 @@ function WhyUseSellor() {
       feature: "Team Engagement",
       traditional: "Limited visibility or feedback on daily sales",
       sellor: "See, like, and comment on real-time wins"
-    },
-    {
+  },
+  {
       feature: "Shift Applications",
       traditional: "Disorganized shift requests by message or in person",
       sellor: "Browse & apply for upcoming shifts in one tap"
@@ -289,11 +259,11 @@ function WhyUseSellor() {
     {
       feature: "Store Insights",
       traditional: "Rely on memory or secondhand advice",
-      sellor: "	Know when and where to pitch smarter"
+      sellor: "Know when and where to pitch smarter"
     },
     {
       feature: "Support & Help",
-      traditional: " support instantly	Call or wait on replies from managers",
+      traditional: "Call or wait on replies from managers",
       sellor: "Search FAQs or contact support instantly"
     }
   ];
@@ -318,7 +288,7 @@ function WhyUseSellor() {
               {/* Number */}
               <div className="text-sm font-bold text-stone-400 mb-2">
                 {reason.number}
-              </div>
+      </div>
               
               {/* Title */}
               <h3 className="text-lg font-semibold text-stone-900 mb-3 leading-tight">
@@ -330,9 +300,15 @@ function WhyUseSellor() {
                 {reason.description}
               </p>
               
-              {/* Screenshot Placeholder */}
-              <div className="bg-stone-100 h-30 rounded border border-stone-200 flex items-center justify-center text-stone-400 text-sm">
-                {reason.placeholder}
+              {/* Screenshot */}
+              <div className="flex items-center justify-center">
+                <Image
+                  src={reason.image}
+                  alt={`${reason.title} screenshot`}
+                  width={400}
+                  height={300}
+                  className="w-auto h-auto max-w-full"
+                />
               </div>
             </div>
           ))}
@@ -348,7 +324,7 @@ function WhyUseSellor() {
             Compare traditional workflows to see why Sellor is the better choice.
           </p>
           <Link
-            href="#getdemo"
+            href="/contact"
             className="inline-flex items-center justify-center bg-[#2A2723] text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-stone-800 transition-colors shadow-sm"
           >
             Get a demo
@@ -374,7 +350,7 @@ function WhyUseSellor() {
                 />
               </div>
               <div className="p-6 text-center border-b border-stone-200 flex items-center justify-center">
-                <h3 className="text-lg text-stone-600 font-medium">Traditional Workflow</h3>
+                <h3 className="text-lg text-stone-600 font-medium">Old way</h3>
               </div>
             </div>
 
@@ -406,8 +382,8 @@ function WhyUseSellor() {
                       {item.traditional}
                     </p>
                   </div>
-                </div>
-              ))}
+            </div>
+          ))}
             </div>
           </div>
         </div>
@@ -448,27 +424,39 @@ function OwnTheFuture() {
                 The field sales industry is experiencing unprecedented growth. With millions of reps seeking better tools and automated solutions, the market is ripe for disruption.
               </p>
               <Link
-                href="#demo"
+                href="/contact"
                 className="inline-flex items-center text-[#2A2723] hover:text-stone-800 font-medium transition-colors"
               >
                 Get a demo
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-            </div>
+      </div>
 
             {/* Visual - 40% width, full height */}
             <div className="lg:w-2/5 bg-gradient-to-br from-blue-100 via-purple-100 to-orange-100 flex items-center justify-center min-h-[300px] lg:min-h-full">
-              <span className="text-stone-500 font-medium">[Market visualization goes here]</span>
-            </div>
-          </div>
-        </div>
+              <Image
+                src="/assets/market-opportunity-image.svg"
+                alt="Market opportunity visualization"
+                width={400}
+                height={300}
+                className="w-auto h-auto max-w-full max-h-full scale-75"
+        />
+      </div>
+      </div>
+    </div>
 
         {/* Card 2 - Ready to Sell */}
         <div className="rounded-2xl overflow-hidden" style={{backgroundColor: '#F7F2EB'}}>
           <div className="flex flex-col lg:flex-row min-h-[400px]">
             {/* Visual - 40% width, full height, on left for this card */}
             <div className="lg:w-2/5 bg-gradient-to-br from-yellow-100 via-orange-100 to-blue-100 flex items-center justify-center min-h-[300px] lg:min-h-full lg:order-1">
-              <span className="text-stone-500 font-medium">[Action interface goes here]</span>
+              <Image
+                src="/assets/become-a-rep-image.svg"
+                alt="Become a rep interface"
+                width={400}
+                height={300}
+                className="w-auto h-auto max-w-full max-h-full scale-75"
+              />
             </div>
 
             {/* Content - 60% width */}
@@ -477,11 +465,13 @@ function OwnTheFuture() {
                 Ready to Sell at the Highest Level?
               </h3>
               <p className="text-lg text-stone-600 leading-relaxed mb-8">
-                Join thousands of reps who've already upgraded their sales game. Get early access to Sellor's beta and start earning more today.
+                Join thousands of reps who&apos;ve already upgraded their sales game. Get early access to Sellor&apos;s beta and start earning more today.
               </p>
               
               <Link
-                href="#signup"
+                href="https://cal.com/sellor/become-a-rep"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center text-[#2A2723] hover:text-stone-800 font-medium transition-colors"
               >
                 Become a Rep
@@ -539,12 +529,30 @@ function Footer() {
           {/* Right side - Company Links */}
           <div>
             <h4 className="font-semibold text-stone-900 mb-4">Company</h4>
-            <Link 
-              href="/contact" 
-              className="text-stone-600 hover:text-[#2A2723] transition-colors font-medium"
-            >
-              Contact us
-            </Link>
+            <div className="space-y-3">
+              <Link 
+                href="/contact" 
+                className="block text-stone-600 hover:text-[#2A2723] transition-colors font-medium"
+              >
+                Contact us
+              </Link>
+              <Link 
+                href="https://candy-slayer-7af.notion.site/Terms-Conditions-2166567444808036a394eef2d410698a?source=copy_link" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-stone-600 hover:text-[#2A2723] transition-colors font-medium"
+              >
+                Terms & Conditions
+              </Link>
+              <Link 
+                href="https://candy-slayer-7af.notion.site/Privacy-Policy-216656744480804abb94edb925ebe0b0?source=copy_link" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-stone-600 hover:text-[#2A2723] transition-colors font-medium"
+              >
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </div>
       </div>

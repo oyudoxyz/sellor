@@ -16,7 +16,7 @@ const features = [
     heading: 'Deploy',
     image: '/assets/deploy.png',
     subheading: 'Get your team in the field fast',
-    body: "Assign territories, routes, and leads with a click. Your reps are ready to go in minutes. Repzo's smart deployment tools let you optimize coverage, avoid overlaps, and respond to changes in real time. Whether you're launching a new product or expanding to a new region, you can deploy your team with confidence. Automated notifications and mobile check-ins keep everyone on track and accountable.",
+    body: "Assign territories, routes, and leads with a click. Your reps are ready to go in minutes. Repzo's smart deployment tools let you optimize coverage, avoid overlaps, and respond to changes in real time. Whether you&apos;re launching a new product or expanding to a new region, you can deploy your team with confidence. Automated notifications and mobile check-ins keep everyone on track and accountable.",
   },
   {
     key: 'manage',
@@ -103,7 +103,7 @@ export default function AnimatedFeatures() {
       observerRef.current?.disconnect();
       window.removeEventListener('resize', handleResize);
     };
-  }, [features.length]);
+  }, []);
 
   // Desktop: scroll logic for active index
   useEffect(() => {
