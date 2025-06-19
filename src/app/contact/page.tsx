@@ -5,26 +5,26 @@ import { Metadata } from 'next';
 // SEO metadata for contact page
 export const metadata: Metadata = {
   title: 'Contact Sellor - Schedule Your Meeting | Get Beta Access & Investor Info',
-  description: 'Schedule a meeting with Sellor team. Get beta access to our AI-powered field sales platform, explore investment opportunities, or learn about becoming a sales rep.',
+  description: 'Schedule a meeting with Sellor team. Get beta access to our AI-powered direct sales platform, explore investment opportunities, or learn about becoming a sales rep.',
   keywords: [
     'contact sellor',
     'schedule meeting',
     'beta access',
-    'field sales platform demo',
+    'direct sales platform demo',
     'investor meeting',
     'sales rep opportunities',
     'AI sales coaching demo',
     'commission tracking platform',
-    'field sales automation',
+    'direct sales automation',
     'sellor team contact'
   ],
   openGraph: {
     title: 'Contact Sellor - Schedule Your Meeting | Get Beta Access & Investor Info',
-    description: 'Schedule a meeting with Sellor team. Get beta access to our AI-powered field sales platform, explore investment opportunities, or learn about becoming a sales rep.',
+    description: 'Schedule a meeting with Sellor team. Get beta access to our AI-powered direct sales platform, explore investment opportunities, or learn about becoming a sales rep.',
     url: 'https://sellor.app/contact',
     images: [
       {
-        url: '/assets/og-image.jpg',
+        url: 'https://sellor.app/assets/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Contact Sellor - Schedule Your Meeting',
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: 'Contact Sellor - Schedule Your Meeting | Get Beta Access & Investor Info',
-    description: 'Schedule a meeting with Sellor team. Get beta access to our AI-powered field sales platform, explore investment opportunities, or learn about becoming a sales rep.',
-    images: ['/assets/og-image.jpg'],
+    description: 'Schedule a meeting with Sellor team. Get beta access to our AI-powered direct sales platform, explore investment opportunities, or learn about becoming a sales rep.',
+    images: ['https://sellor.app/assets/og-image.jpg'],
   },
   alternates: {
     canonical: '/contact',
@@ -78,7 +78,7 @@ export default function ContactPage() {
                   </span>
                 </h1>
                 <p className="text-xl text-stone-600 leading-relaxed">
-                  Choose the option that best fits your needs. Whether you&apos;re an investor interested in our growth story, a business ready to try our platform, or someone looking to join our field sales team - we have the right conversation for you.
+                  Choose the option that best fits your needs. Whether you&apos;re an investor interested in our growth story, a business ready to try our platform, or someone looking to join our direct sales team - we have the right conversation for you.
                 </p>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function ContactPage() {
               >
                 <h3 className="text-xl font-medium text-stone-900 mb-6">Get Beta Access</h3>
                 <p className="text-lg text-stone-600 leading-relaxed mb-8">
-                  Ready to try Sellor? Get early access to our platform and be among the first to experience the future of field sales.
+                  Ready to try Sellor? Get early access to our platform and be among the first to experience the future of direct sales.
                 </p>
                 <span className="inline-flex items-center text-[#2A2723] hover:text-stone-800 font-medium transition-colors">
                   Join beta program
@@ -135,7 +135,7 @@ export default function ContactPage() {
               >
                 <h3 className="text-xl font-medium text-stone-900 mb-6">Become a Rep</h3>
                 <p className="text-lg text-stone-600 leading-relaxed mb-8">
-                  Interested in joining our field sales team? Learn about opportunities to work with Sellor and grow your sales career.
+                  Interested in joining our direct sales team? Learn about opportunities to work with Sellor and grow your sales career.
                 </p>
                 <span className="inline-flex items-center text-[#2A2723] hover:text-stone-800 font-medium transition-colors">
                   Explore opportunities

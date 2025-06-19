@@ -9,7 +9,7 @@ export default function BecomeARepSection() {
           Ready to earn more? <br /> Become a Repzo Rep
         </h2>
         <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-md">
-          Join a network of top field sales professionals, get exclusive access
+          Join a network of top direct sales professionals, get exclusive access
           to high-quality leads, and boost your income with flexible, rewarding
           work.
         </p>

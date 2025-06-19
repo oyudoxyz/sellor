@@ -64,7 +64,7 @@ export default function Hero() {
   return (
     <section className="w-full flex flex-col items-center justify-center bg-[#f7f7f0] pt-40 pb-10 px-4 relative min-h-[60vh] font-manrope">
       <h1 className="text-4xl md:text-6xl font-extrabold text-center text-black mb-4 max-w-2xl">
-        Field sales operations. <br />
+        Direct sales operations. <br />
         Made effortless.
       </h1>
       <p className="text-lg md:text-xl text-center text-black/70 mb-10 max-w-xl">

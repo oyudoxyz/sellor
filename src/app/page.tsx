@@ -417,7 +417,7 @@ function OwnTheFuture() {
         {/* Main Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl sm:text-5xl font-light text-stone-900 mb-6">
-            Own the Future of Field Sales
+            Own the Future of Direct Sales
           </h2>
           <p className="text-lg text-stone-600 max-w-4xl mx-auto leading-relaxed">
             5.5 M reps will upgrade to automated shifts, real-time earnings, and AI scripting by 2032—why wait? Join the Sellor Beta today and supercharge your sales hustle.
@@ -433,7 +433,7 @@ function OwnTheFuture() {
                 Market Opportunity
               </h3>
               <p className="text-lg text-stone-600 leading-relaxed mb-8">
-                The field sales industry is experiencing unprecedented growth. With millions of reps seeking better tools and automated solutions, the market is ripe for disruption.
+                The direct sales industry is experiencing unprecedented growth. With millions of reps seeking better tools and automated solutions, the market is ripe for disruption.
               </p>
               <Link
                 href="/contact"

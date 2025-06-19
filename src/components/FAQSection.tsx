@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: 'What are the requirements to join as a rep?',
-    a: 'You should have strong communication skills, a passion for sales, and a willingness to learn. Prior field sales experience is a plus but not required.',
+    a: 'You should have strong communication skills, a passion for sales, and a willingness to learn. Prior direct sales experience is a plus but not required.',
   },
   {
     q: 'How do reps get paid?',
@@ -17,11 +17,11 @@ const faqs = [
   },
   {
     q: 'How can Repzo help my business?',
-    a: 'Repzo streamlines your field sales operations, automates reporting, and gives you real-time insights to help your team close more deals.',
+    a: 'Repzo streamlines your direct sales operations, automates reporting, and gives you real-time insights to help your team close more deals.',
   },
   {
     q: 'Is Repzo suitable for my industry?',
-    a: 'Repzo is trusted by businesses in retail, solar, pharma, insurance, telecom, and more. Our platform is flexible for any field sales team.',
+    a: 'Repzo is trusted by businesses in retail, solar, pharma, insurance, telecom, and more. Our platform is flexible for any direct sales team.',
   },
   {
     q: 'How quickly can my team get started?',
