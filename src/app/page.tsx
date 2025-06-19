@@ -172,8 +172,14 @@ function Hero() {
                   alt="Sellor Mobile App Interface"
                   width={400}
                   height={500}
-                  className="w-full h-auto drop-shadow-none"
-        />
+                  className="w-full h-auto"
+                  priority
+                  unoptimized
+                  style={{
+                    imageRendering: 'crisp-edges',
+                    shapeRendering: 'geometricPrecision'
+                  }}
+                />
               </div>
               <div className="flex-1">
                 <Image
@@ -181,8 +187,14 @@ function Hero() {
                   alt="Sellor Dashboard Interface"
                   width={400}
                   height={500}
-                  className="w-full h-auto drop-shadow-none"
-        />
+                  className="w-full h-auto"
+                  priority
+                  unoptimized
+                  style={{
+                    imageRendering: 'crisp-edges',
+                    shapeRendering: 'geometricPrecision'
+                  }}
+                />
               </div>
             </div>
           </div>
