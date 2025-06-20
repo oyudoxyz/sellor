@@ -86,7 +86,7 @@ function Header() {
 // Hero Section - Cool sophisticated background
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pb-20">
       {/* Cool Sophisticated Background with Circular Patterns */}
       <div className="absolute inset-0">
         {/* Continuous concentric circles throughout hero section */}
@@ -167,33 +167,17 @@ function Hero() {
             {/* Hero Images - Side by side on desktop, stacked on mobile */}
             <div className="flex flex-col md:flex-row gap-8">
               <div className="flex-1">
-                <Image
+                <img
                   src="/assets/hero-image-1.svg"
                   alt="Sellor Mobile App Interface"
-                  width={400}
-                  height={500}
                   className="w-full h-auto"
-                  priority
-                  unoptimized
-                  style={{
-                    imageRendering: 'crisp-edges',
-                    shapeRendering: 'geometricPrecision'
-                  }}
                 />
               </div>
               <div className="flex-1">
-                <Image
+                <img
                   src="/assets/hero-image-2.svg"
                   alt="Sellor Dashboard Interface"
-                  width={400}
-                  height={500}
                   className="w-full h-auto"
-                  priority
-                  unoptimized
-                  style={{
-                    imageRendering: 'crisp-edges',
-                    shapeRendering: 'geometricPrecision'
-                  }}
                 />
               </div>
             </div>
