@@ -167,34 +167,24 @@ function Hero() {
             {/* Hero Images - Side by side on desktop, stacked on mobile */}
             <div className="flex flex-col md:flex-row gap-8">
               <div className="flex-1">
-                <img
-                  src="/assets/hero-image-1.svg"
-                  alt="Sellor Mobile App Interface"
-                  className="w-full h-auto"
-                  style={{
-                    imageRendering: 'crisp-edges',
-                    shapeRendering: 'geometricPrecision',
-                    WebkitBackfaceVisibility: 'hidden',
-                    backfaceVisibility: 'hidden',
-                    WebkitTransform: 'translateZ(0)',
-                    transform: 'translateZ(0)'
-                  }}
-                />
+                <div className="w-full aspect-[9/10] rounded-2xl bg-gradient-to-b from-[#F7F1EB] via-[#F7F1EB]/80 to-transparent relative overflow-hidden">
+                  <img
+                    src="/assets/hero-image-1.svg"
+                    alt="Sellor Mobile App Interface"
+                    className="absolute inset-0 w-full h-full object-contain object-bottom"
+                    style={{ paddingTop: '3rem', paddingLeft: '2rem', paddingRight: '2rem' }}
+                  />
+                </div>
               </div>
               <div className="flex-1">
-                <img
-                  src="/assets/hero-image-2.svg"
-                  alt="Sellor Dashboard Interface"
-                  className="w-full h-auto"
-                  style={{
-                    imageRendering: 'crisp-edges',
-                    shapeRendering: 'geometricPrecision',
-                    WebkitBackfaceVisibility: 'hidden',
-                    backfaceVisibility: 'hidden',
-                    WebkitTransform: 'translateZ(0)',
-                    transform: 'translateZ(0)'
-                  }}
-                />
+                <div className="w-full aspect-[9/10] rounded-2xl bg-gradient-to-b from-[#F7F1EB] via-[#F7F1EB]/80 to-transparent relative overflow-hidden">
+                  <img
+                    src="/assets/hero-image-2.svg"
+                    alt="Sellor Dashboard Interface"
+                    className="absolute inset-0 w-full h-full object-contain object-bottom"
+                    style={{ paddingTop: '3rem', paddingLeft: '2rem', paddingRight: '2rem' }}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -451,7 +441,7 @@ function OwnTheFuture() {
                 alt="Market opportunity visualization"
                 width={400}
                 height={300}
-                className="w-auto h-auto max-w-full max-h-full scale-75"
+                className="w-auto h-auto max-w-full max-h-full"
         />
       </div>
       </div>
@@ -467,7 +457,7 @@ function OwnTheFuture() {
                 alt="Become a rep interface"
                 width={400}
                 height={300}
-                className="w-auto h-auto max-w-full max-h-full scale-75"
+                className="w-auto h-auto max-w-full max-h-full"
               />
             </div>
 
