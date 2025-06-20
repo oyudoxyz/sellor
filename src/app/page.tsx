@@ -171,6 +171,14 @@ function Hero() {
                   src="/assets/hero-image-1.svg"
                   alt="Sellor Mobile App Interface"
                   className="w-full h-auto"
+                  style={{
+                    imageRendering: 'crisp-edges',
+                    shapeRendering: 'geometricPrecision',
+                    WebkitBackfaceVisibility: 'hidden',
+                    backfaceVisibility: 'hidden',
+                    WebkitTransform: 'translateZ(0)',
+                    transform: 'translateZ(0)'
+                  }}
                 />
               </div>
               <div className="flex-1">
@@ -178,6 +186,14 @@ function Hero() {
                   src="/assets/hero-image-2.svg"
                   alt="Sellor Dashboard Interface"
                   className="w-full h-auto"
+                  style={{
+                    imageRendering: 'crisp-edges',
+                    shapeRendering: 'geometricPrecision',
+                    WebkitBackfaceVisibility: 'hidden',
+                    backfaceVisibility: 'hidden',
+                    WebkitTransform: 'translateZ(0)',
+                    transform: 'translateZ(0)'
+                  }}
                 />
               </div>
             </div>
